@@ -5,6 +5,8 @@ import Body from "./component/Body";
 import Login from "./component/Login";
 import Destail from "./component/Destail";
 import Singin from "./component/Singin";
+import Category from "./component/Category"
+
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +17,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Singin" element={<Singin />} />
           <Route path="/Destail" element={<Destail />} />
+          <Route path="/Category" element={<Category />} />
         </Routes>
       </div>
     </BrowserRouter>

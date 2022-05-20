@@ -2,10 +2,15 @@ import "../App.css";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-function Destail() {
+function Destail({skills,details}) {
+  console.log(skills )
   return (
     <>
-      <Card style={{ width: "350px", marginTop: "70px", marginLeft: "17px" }}>
+<p> {"skills"} <br/> 
+{"details"}
+
+</p>
+      {/* <Card style={{ width: "350px", marginTop: "70px", marginLeft: "17px" }}>
         <Card.Header as="h5">
           <div className="col" id="box">
             <div className="img-job">
@@ -29,19 +34,22 @@ function Destail() {
               وفقاً للتفاصيل والشروط الآتية.
             </p>
             <h6>المسمى الوظيفي </h6>
+            <br />
             <p>
               {" "}
-              <br /> موظف \ موظفة خدمة رعاية عملاء موظف \ موظفة في قسم حلول
+              موظف \ موظفة خدمة رعاية عملاء موظف \ موظفة في قسم حلول
               المشاكل .
             </p>
 
-            <p6> المميزات و الشروط : </p6>
+            <p6> المميزات و الشروط : </p6> 
+            <br />
             <p>
               مكان العمل: مدينة الرياض وجدة والدمام ومكة المكرمة
-              <br />
+             
               لم يتم ذكر شرط الخبرة المؤهلات المطلوبة : لم يتم التحديد لكن تناسب
               حملة البكالوريوس والدبلوم في التخصصات الإدارية
             </p>
+            <br />
           </Form.Text>
 
           <Button
@@ -56,7 +64,7 @@ function Destail() {
             Submit
           </Button>
         </Card.Body>
-      </Card>
+      </Card> */}
     </>
   );
 }

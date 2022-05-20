@@ -17,15 +17,14 @@ function Home() {
             <img
               width="110"
               src="https://teleworks.sa/wp-content/themes/understrap-child/images/header-logo-all.png"
-              class="img-fluid"
               alt="Telework"
             ></img>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link href="#">Features</Nav.Link>
+              <Nav.Link href="#">Pricing</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link>
