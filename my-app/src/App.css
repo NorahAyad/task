@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap");
+.App {
+  text-align: center;
+background-color:  #f9f8ff;
+height: 1000px;
+}
+*{
+  font-family: "Cairo";
+}
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+  background-color:white;
+}
+#box-c {
+
+  display: flex;
+  width: 360px;
+  height: 109px;
+  padding: 8px;
+  border: 1px solid #e1e8f2;
+  border-radius: 10px;
+  margin: 15px;
+  overflow: hidden;
+}
+.img-cat {
+  float: right;
+  width: 183px;
+  height: 107px;
+  overflow: hidden;
+  border: 1px solid #e1e8f2;
+   margin-left: -9px;
+    margin-top: -9px; 
+  border-radius: 3px;
+}
+.img-cat img {
+  width: 100%;
+}
+.info-cat h2 {
+  background-color:white;
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  width: 92%;
+  overflow: hidden;
+}
+.info-cat h3 {
+  background-color:white;
+  font-size: 15px;
+  color: #3d93f4;
+  width: 81%;
+  height: 49px;
+  margin-left: 53px;
+  overflow: hidden;
+  font-weight: bold;
+}
+.destail-wzefa div {
+ 
+  width: 38%;
+  float: right;
+  margin-top: -9px;
+  font-size: 14px;
+}
+.img-job{
+  float: right;
+  	    width: 92px;
+height: 108px;
+overflow: hidden;
+  border: 1px solid #e1e8f2;
+  margin-left: -9px;
+  margin-top: -9px;
+  	    border-radius: 3px;
+  }
+  .img-job img{
+    width: 81px;
+  }
+  #box{
+   display: flex;
+  width: 326px;
+     height: 85px;
+     padding: 8px;
+     border: 1px solid #e1e8f2;
+     border-radius: 10px;
+    	    overflow: hidden;
+    }
+  col {
+    background-color: rgb(247 247 247);
+  }
+
