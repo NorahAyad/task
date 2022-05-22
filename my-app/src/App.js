@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./component/Home";
-import Body from "./component/Body";
+import Home from "./component/NavBarHome";
 import Login from "./component/Login";
-import Destail from "./component/Destail";
+import Destail from "./component/Career Page/Destail";
 import Singin from "./component/Singin";
-import Category from "./component/Category"
+import Category from "./component/Career Page/Category"
+import Jobs from "./component/Career Page/Jobs";
 
 function App() {
   return (
@@ -13,10 +13,10 @@ function App() {
       <div className="App">
         <Home />
         <Routes>
-          <Route path="/" element={<Body />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Singin" element={<Singin />} />
-          <Route path="/Destail" element={<Destail />} />
+          <Route path="/Destail/:id" element={<Destail />} />
+          <Route path="/" element={<Jobs />} />
           <Route path="/Category" element={<Category />} />
         </Routes>
       </div>

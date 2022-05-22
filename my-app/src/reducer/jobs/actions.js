@@ -26,10 +26,10 @@ export const deleteIJobs = (jobs) => {
       payload:jobs,
     }
   }
-  export const getTheSide = (jobs)=> {
-
+  export const getheadline = (jobs)=> {
+    console.log(jobs);
     return{
-      type:"SET_THE_SIDE",
+      type:"SET_HEADLINEE",
       payload:jobs,
     }
   }

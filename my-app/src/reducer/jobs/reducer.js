@@ -33,9 +33,8 @@ const initialState = {
       },
       
   ],
-    Favorite: [],
     category:"",
-    theSide:""
+    headline:""
 
   };
   // action -> {type: "ABC", payload: 2}
@@ -54,7 +53,7 @@ const initialState = {
             Jobs:state.Jobs,
              
           }
-          case "SET_THE_SIDE":
+          case "SET_HEADLINE":
             return{
              theSide:payload,
               Jobs:state.Jobs,
