@@ -9,8 +9,10 @@ function Category(){
       return {
         JobsReducer: state.JobsReducer.Jobs,
         category:state.JobsReducer.category
+
       };
     });
+   
 
     return (
         <>

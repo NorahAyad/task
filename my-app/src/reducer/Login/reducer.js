@@ -1,3 +1,4 @@
+const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
     loginDetails: [{id:1,email: "norah@gmail.com",username: "norah",password: "123",logIn:false
     ,name: { firstname: "norah", lastname: "Alotaibi" }} ],
@@ -10,7 +11,7 @@ const initialState = {
     switch (type) {
       case "SET_LOGIN":
         console.log(state.loginDetails);
-  
+        localStorage.setItem("user", JSON.stringify(payload));
         return {
           loginDetails: payload,
           userName: state.userName,

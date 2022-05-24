@@ -4,80 +4,94 @@ import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 import {getheadline} from "../../reducer/jobs/actions";
+
+import { useNavigate } from "react-router-dom";
+
+import { useEffect } from "react";
 function Destail() {
   const { id } = useParams();
   const { Jobs } = useSelector((state) => state.JobsReducer);
-  const [jobHeadline, setJobHeadline] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const state = useSelector((state) => {
     return {
       JobsReducer: state.JobsReducer.Jobs,
-      headline:state.JobsReducer.headline
+      headline:state.JobsReducer.headline,
+      statusList: state.statusList.statusUsers,
+      id: state.loginDetails.id,
     };
   });
-  function SubmitOnClik() {
-   
-   
-  }
-  function selectOnChange(e) {
+ 
+  useEffect(() => {
+      dispatch(getheadline(Jobs[id].headline))
+ 
+  }, []);
   
-    setJobHeadline(e)
-   console.log(jobHeadline+"job")
-   dispatch(getheadline(jobHeadline))
-  }
+  
+  const ckeek = ()=>{
+    if(state.id == 0){
+      alert("You have to log in to add to Apply");
+    }else{
+      navigate("/Apply");
+    }
+ 
+    };
+  
+ 
   return (
     <>
       <Card style={{ width: "350px", marginTop: "70px", marginLeft: "17px" }}>
         <Card.Header as="h5">
           <div className="col" id="box">
+          <div className="box-header">
+              <h5 style={{ }} >
+            { Jobs[id].headline}
+              </h5>
+            </div>
             <div className="img-job">
               <img src={Jobs[id].img} />
             </div>
-            <div>
-              <h5 style={{ textAlign: "right", marginRight: "-3px" }} onChange={selectOnChange(Jobs[id].headline)}>
-            {Jobs[id].headline}
-              </h5>
-            </div>
+           
           </div>
         </Card.Header>
         <Card.Body>
           <Form.Text className="text-muted">
-            <h6>
-              : JobDescription
+            <h5 className="text-muted ">
+              JobDescription:
               <br />
-              {Jobs[id].JobDescription}{" "}
-            </h6>
-            <br />
-            <p>
+            </h5>
+          <p>{Jobs[id].JobDescription}{" "}</p>
+            <h5 className="text-muted ">
               details <br />
-              {Jobs[id].details}
-            </p>
-            <h6>
-              {" "}
-              : JobTitle <br />
-            </h6>
-            <br />
+           </h5>
+           <p>{Jobs[id].details} </p> 
+            <h5 className="text-muted ">
+              
+               JobTitle: <br />
+            </h5>
+        
             <p> {Jobs[id].JobTitle}</p>
 
-            <p6> skills : </p6>
-            <br />
+            <h5 className="text-muted "> skills : </h5>
+         
             <p>{Jobs[id].skills}</p>
             <br />
           </Form.Text>
 
           <Button
             type="submit"
+            onClick={()=>ckeek()}
             style={{
               marginRight: "9px",
               color: "#fff",
               backgroundColor: "#00024d",
               borderColor: "#00024d",
              }}
-             onClick={SubmitOnClik()}
+            
           >
-            Submit
+            Apply her
+         
           </Button>
         </Card.Body>
       </Card>

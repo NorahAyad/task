@@ -6,6 +6,7 @@ export const setJobs = (jobs) => {
     };
 }
 export const deleteIJobs = (jobs) => {
+  
     // user: is an object that represents a user
     return {
       type: "DELETE_JOBS",
@@ -13,7 +14,10 @@ export const deleteIJobs = (jobs) => {
     };
   };
   export const updetJobs = (data) => {
+
     // user: is an object that represents a user
+    console.log(data)
+    
     return {
       type: "UPDET_JOBS",
       payload: data,
@@ -27,21 +31,13 @@ export const deleteIJobs = (jobs) => {
     }
   }
   export const getheadline = (jobs)=> {
-    console.log(jobs);
+   
     return{
       type:"SET_HEADLINEE",
       payload:jobs,
     }
   }
-  export const Favorite = (jobs) => {
-    // user: is an object that represents a user
-    console.log(jobs);
-    return {
-      type: "SET_FAVORITE",
-      payload: jobs,
-    };
-    
-  }; 
+
   
 
 
