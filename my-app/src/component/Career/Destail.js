@@ -5,15 +5,16 @@ import { Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import {getheadline} from "../../reducer/jobs/actions";
-
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 import { useEffect } from "react";
 function Destail() {
+
   const { id } = useParams();
   const { Jobs } = useSelector((state) => state.JobsReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const history = useNavigate();
   const state = useSelector((state) => {
     return {
       JobsReducer: state.JobsReducer.Jobs,
@@ -30,8 +31,14 @@ function Destail() {
   
   
   const ckeek = ()=>{
-    if(state.id == 0){
-      alert("You have to log in to add to Apply");
+    if(state.id == 0){  
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'You have to log in to add to Apply',
+ 
+})
+     
     }else{
       navigate("/Apply");
     }
@@ -95,6 +102,13 @@ function Destail() {
           </Button>
         </Card.Body>
       </Card>
+      <Button
+            type="submit"
+            onClick={()=> history(-1)}
+          >
+           back
+         
+          </Button>
     </>
   );
 }

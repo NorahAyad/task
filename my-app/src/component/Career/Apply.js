@@ -11,9 +11,12 @@ import { Link } from "react-router-dom";
 import {setStatusList} from "../../reducer/status/actions";
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 function Apply() {
   const [selectedFile, setSelectedFile] = useState("");
   const dispatch = useDispatch();
+  const history = useNavigate();
+
   const formData = new FormData();
   formData.append("file", selectedFile);
   
@@ -105,13 +108,23 @@ function Apply() {
     addStatusList()
     console.log(state.statusList);
 
-    // Swal.fire({
-    //   position: "center",
-    //   icon: "success",
-    //   title: "Your work has been save",
-    //   showConfirmButton: false,
-    //   timer: 1500,
-    // });
+  
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1500,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: ' successfully'
+})
   })
   .catch((err) => {
     console.log(err);
@@ -182,7 +195,13 @@ function Apply() {
           </Form>
         </Card.Body>
       </Card>
-  
+      <button
+            type="submit"
+            onClick={()=> history(-1)}
+          >
+           back
+         
+          </button>
     </>
   );
 }

@@ -11,9 +11,10 @@ import {updetJobs} from "../../reducer/jobs/actions";
 import { useState } from "react";
 import remove from "../../images/remove.png";
 import refresh from "../../images/refresh .png";
+import { useNavigate } from "react-router-dom";
 function JobsAdmin() {
   const dispatch = useDispatch();
-
+  const history = useNavigate();
   const [TheSide, setTheSide] = useState('');
   const [Headline, setHeadline] = useState('');
   const [Details, setDetails] = useState('');
@@ -71,7 +72,13 @@ console.log(jobs.headline)
 
   return <>
   
-
+  <button
+            type="submit"
+            onClick={()=> history(-1)}
+          >
+           back
+         
+          </button>
  {state.JobsReducer.map((e, index) => 
        <Card style={{ width: "350px", marginTop: "70px", marginLeft: "17px" }}>
        <Card.Header as="h5">

@@ -1,9 +1,8 @@
 import "/Users/norah/Desktop/task/my-app/src/App.css";
-import { Button } from "react-bootstrap";
-import { useEffect,useState } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
-
+import accept from "../../images/accept.png"
+import cross from "../../images/cross.png"
 import { Card, Col, Row } from "react-bootstrap";
 function CreateOrderDetails({usersApply,setUsersApply}) {
 
@@ -59,6 +58,8 @@ function CreateOrderDetails({usersApply,setUsersApply}) {
       .catch((err) => {
         console.log(err);
       });
+
+
   };
 
 
@@ -112,8 +113,34 @@ function CreateOrderDetails({usersApply,setUsersApply}) {
         <Card.Header as="h5">
           <div>{usersApply.firstName}   {usersApply.lastName}</div>
         </Card.Header>
+
+
+
+        
         <Card.Body>
-         
+       
+        <Form.Text className="text-muted">
+        <h5 className="text-muted ">
+          headlineJobs : {usersApply.headlineJobs}
+            </h5>
+        <h5 className="text-muted ">
+           linkedin LinK: {usersApply.linkedin}
+            </h5>
+            <h5 className="text-muted ">
+            Sklis: {usersApply.Sklis}
+            </h5>
+          
+          </Form.Text>
+          <img className="img-delet" src={cross} 
+         onClick={(e) => {
+          submitReject(e);
+        }}
+         />
+         <img className="img-refresh" src={accept} 
+         onClick={(e) => {
+          submitAccept(e);
+        }}
+         />
         </Card.Body>
       </Card>
      

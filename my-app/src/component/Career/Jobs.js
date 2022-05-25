@@ -21,7 +21,7 @@ function Jobs() {
   return (
 
     <>
-      <Filter/>
+ 
      
            {state.JobsReducer.map((e, index) => <Job index={index} e={e} />)}
         

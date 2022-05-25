@@ -5,6 +5,14 @@ export const setLoginDetails = (loginDetails) => {
       payload: loginDetails,
     };
   };
+  export const logIn = (loginDetails) => {
+    console.log(loginDetails);
+    return {
+      type: "LOG-IN",
+      payload: loginDetails,
+    };
+  };
+  
   
   export const setUserName = (userName) => {
     console.log(userName);

@@ -3,9 +3,9 @@ import "../../App.css";
 import { useSelector } from "react-redux";
 import { Card, Form } from "react-bootstrap";
 import suitcase1 from "../../images/suitcase.png"
-import cross from "../../images/cross.png"
+import cross from "../../images/cross-button.png"
 import pen from "../../images/pen.png"
-import accept from "../../images/accept.png"
+import accept from "../../images/accept-admin.png"
 import { Link } from "react-router-dom";
 function Jobs() {
   const state = useSelector((state) => {

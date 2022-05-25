@@ -2,8 +2,10 @@ import "/Users/norah/Desktop/task/my-app/src/App.css";
 import axios from "axios";
 import { useEffect,useState } from "react";
 import CreateOrderDetails from "./CreateOrderDetails"
+import { useNavigate } from "react-router-dom";
 function CreateOrder() {
   const [usersApply, setUsersApply] = useState([])
+  const history = useNavigate();
   useEffect(() => {
    
   axios
@@ -25,7 +27,13 @@ let m1=[]
   return <>
   
 
-          
+  <button
+            type="submit"
+            onClick={()=> history(-1)}
+          >
+           back
+         
+          </button>
 
               
               {usersApply.map((usersApply) => {

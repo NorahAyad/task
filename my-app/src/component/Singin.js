@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserName, setId } from "../reducer/Login/actions";
+import { setUserName, setId,logIn } from "../reducer/Login/actions";
 import { setLoginDetails } from "../reducer/Login/actions";
 import { Link } from "react-router-dom";
 function Singin() {
@@ -13,6 +13,7 @@ function Singin() {
     return {
       
       loginDetails: state.loginDetails.loginDetails,
+
       
     };
   });
@@ -23,7 +24,6 @@ function Singin() {
   let userName;
   let email;
   let password;
-  let logIn;
   const changeFirstName = (e) => {
     firstName = e.target.value;
   };
@@ -72,11 +72,15 @@ function Singin() {
       console.log(arr);
       const action = setLoginDetails(arr);
       dispatch(action);
+      console.log(state.loginDetails);
+
       const action4 = setUserName(userName);
       dispatch(action4);
       const action5 = setId(state.loginDetails.length + 1);
       dispatch(action5);
-      console.log(state.loginDetails);
+      const action6 = logIn(true);
+      dispatch(action6);
+     
       navigate("/");
     }
   };
