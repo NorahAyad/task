@@ -5,7 +5,6 @@ import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { setUserName, setId, logIn } from "../reducer/Login/actions";
 import { Link } from "react-router-dom";
 function Login() {
@@ -14,17 +13,14 @@ function Login() {
   const [password, setPassword] = useState("");
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
-    let login;
+  let login;
   const state = useSelector((state) => {
     return {
       loginDetails: state.loginDetails.loginDetails,
-   
     };
-   
   });
 
-
-console.log(state.loginDetails)
+  console.log(state.loginDetails[0].id);
 
   const usernameOrEmail = (e) => {
     setUserinfo(e.target.value);
@@ -34,17 +30,18 @@ console.log(state.loginDetails)
   };
   const checkLogin = (e) => {
     e.preventDefault();
-     
 
-   if (userinfo.includes("@")) {
+    if (userinfo.includes("@")) {
       const foundUser = state.loginDetails.find(
         (element) => element.email == userinfo
       );
       const foundPassword = state.loginDetails.find(
         (element) => element.password == password
       );
+
       if (foundUser && foundPassword) {
         console.log("user found");
+
         state.loginDetails.map((ele) => {
           if (ele.email == userinfo) {
             const action1 = setUserName(ele.username);
@@ -60,15 +57,17 @@ console.log(state.loginDetails)
       } else {
         setToggle(true);
       }
-    }else{
+    } else {
       const foundUser = state.loginDetails.find(
         (element) => element.username == userinfo
       );
       const foundPassword = state.loginDetails.find(
         (element) => element.password == password
       );
+
       if (foundUser && foundPassword) {
         console.log("user found");
+
         const action1 = setUserName(userinfo);
         dispatch(action1);
         state.loginDetails.map((ele) => {
@@ -77,20 +76,15 @@ console.log(state.loginDetails)
             dispatch(action2);
             const action3 = logIn(ele.logIn);
             dispatch(action3);
-            
           }
         });
         navigate("/");
-      } 
-      
-      else {
+      } else {
         setToggle(true);
       }
-      
     }
-    
   };
-  
+
   return (
     <>
       <Card style={{ width: "350px", marginTop: "70px", marginLeft: "17px" }}>
@@ -99,19 +93,27 @@ console.log(state.loginDetails)
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Username </Form.Label>
-              <Form.Control   onChange={usernameOrEmail}type="email" placeholder="Enter email" />
+              <Form.Control
+                onChange={usernameOrEmail}
+                type="email"
+                placeholder="Enter email"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control onChange={passwordValue}type="password" placeholder="Password" />
+              <Form.Control
+                onChange={passwordValue}
+                type="password"
+                placeholder="Password"
+              />
             </Form.Group>
             {toggle && (
-            <label>
-              <b className="b-login">Username or email is wrong</b>
-            </label>
-          )}
-          <br />
+              <label>
+                <b className="b-login">Username or email is wrong</b>
+              </label>
+            )}
+            <br />
             <Button
               type="submit"
               style={{
@@ -119,7 +121,6 @@ console.log(state.loginDetails)
                 color: "#fff",
                 backgroundColor: "#00024d",
                 borderColor: "#00024d",
-                
               }}
               onClick={(e) => checkLogin(e)}
             >

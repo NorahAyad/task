@@ -1,8 +1,6 @@
 import "/Users/norah/Desktop/task/my-app/src/App.css";
 import { useDispatch, useSelector } from "react-redux";
-
-import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import back from "../../images/back.png"
 import { Form } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { useEffect } from "react";
@@ -72,13 +70,7 @@ console.log(jobs.headline)
 
   return <>
   
-  <button
-            type="submit"
-            onClick={()=> history(-1)}
-          >
-           back
-         
-          </button>
+  <img  className="back" onClick={()=> history(-1)}  src={back}></img>
  {state.JobsReducer.map((e, index) => 
        <Card style={{ width: "350px", marginTop: "70px", marginLeft: "17px" }}>
        <Card.Header as="h5">

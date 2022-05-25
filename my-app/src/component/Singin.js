@@ -4,17 +4,14 @@ import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserName, setId,logIn } from "../reducer/Login/actions";
+import { setUserName, setId, logIn } from "../reducer/Login/actions";
 import { setLoginDetails } from "../reducer/Login/actions";
 import { Link } from "react-router-dom";
 function Singin() {
   const navigate = useNavigate();
   const state = useSelector((state) => {
     return {
-      
       loginDetails: state.loginDetails.loginDetails,
-
-      
     };
   });
   console.log(state.loginDetails);
@@ -64,7 +61,7 @@ function Singin() {
         username: userName,
         password: password,
         name: { firstname: firstName, lastname: lastName },
-        logIn:true
+        logIn: true,
       };
       let arr = state.loginDetails.slice();
       console.log(arr);
@@ -80,11 +77,10 @@ function Singin() {
       dispatch(action5);
       const action6 = logIn(true);
       dispatch(action6);
-     
+
       navigate("/");
     }
   };
-
 
   return (
     <>
@@ -94,25 +90,45 @@ function Singin() {
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>first name</Form.Label>
-              <Form.Control   onChange={changeFirstName} type="email" placeholder="Enter email" />
+              <Form.Control
+                onChange={changeFirstName}
+                type="email"
+                placeholder="Enter email"
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Last name</Form.Label>
-              <Form.Control   onChange={changeLastName} type="email" placeholder="Enter email" />
+              <Form.Control
+                onChange={changeLastName}
+                type="email"
+                placeholder="Enter email"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control   onChange={changeEmail} type="email" placeholder="Enter email" />
+              <Form.Control
+                onChange={changeEmail}
+                type="email"
+                placeholder="Enter email"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>UserName</Form.Label>
-              <Form.Control   onChange={changeUserName} type="email" placeholder="Enter email" />
+              <Form.Control
+                onChange={changeUserName}
+                type="email"
+                placeholder="Enter email"
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control  onChange={changePassword}type="password" placeholder="Password" />
+              <Form.Control
+                onChange={changePassword}
+                type="password"
+                placeholder="Password"
+              />
             </Form.Group>
 
             <Button
@@ -125,11 +141,11 @@ function Singin() {
               }}
               onClick={(e) => Cheack(e)}
             >
-               Sign Up
+              Sign Up
             </Button>
             <p>
-            Already registered ?<Link to="/login">Log in</Link>
-          </p>
+              Already registered ?<Link to="/login">Log in</Link>
+            </p>
           </Form>
         </Card.Body>
       </Card>
